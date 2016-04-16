@@ -1,31 +1,29 @@
 weba:
   build: .
   expose:
-    - 80
+    - 8022
 
 webb:
   build: .
   expose:
-    - 80
+    - 8022
 
 webc:
   build: .
   expose:
-    - 80
+    - 8022
 
 haproxy:
-  image: eeacms/haproxy 
-  volumes:
-   - haproxy:/haproxy-override
+  build: ./haproxy 
   links:
    - weba
    - webb
    - webc
   ports:
-   - "80:80"
-   - "70:70"
+   - "8022:8022"
+   - "71:70"
 
   expose:
-   - "80"
-   - "70"
+   - "8022"
+   - "71"
 
